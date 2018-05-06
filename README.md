@@ -54,6 +54,7 @@ Or, if you don't want/need a background service you can just run:
 * phpinfo.php just has a basic PHP code to print PHP info page when called from browser
 
 #### Pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+```
   location ~ \.php$ {
   	root           html;
     fastcgi_pass   127.0.0.1:9000;
@@ -61,6 +62,7 @@ Or, if you don't want/need a background service you can just run:
     fastcgi_param  SCRIPT_FILENAME  /usr/local/var/www$fastcgi_script_name;
     include        fastcgi_params;
   }
+```
 
 #### Restart nginx to enable the changes
 
