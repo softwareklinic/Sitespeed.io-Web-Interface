@@ -74,7 +74,7 @@ Clone this REPO in the document root (e.g. /usr/local/var/www) of your Nginx and
 
 Following are the key components of Sitespeed.io.php
 
-* **cc** folder (basic css rules - nothing fancy)
+* **css** folder (basic css rules - nothing fancy)
 * **images** folder (Just 1 image file - preloader.gif) - is an animated GIF that you want to show when sitespeed portal is processing the URLs for performance analysis
 * **sitespeed.io.php** - the heart of this application - Its all in the PHP file - I'm planning to make it better by seperating the configuration into some .ini files later
 * **.js** file - you will observe some JS files e.g. staging.js or qa1.js -- those are your preScript files containing the pre login scripts that you will provide as argument to sitespeed if you want to test login-based flows
