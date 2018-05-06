@@ -47,7 +47,7 @@ Or, if you don't want/need a background service you can just run:
 #### Modify Nginx conf to enable PHP (assuming you have PHP installed on your Mac)
 
 * Uncomment below lines in the nginx.conf to enable PHP
-* Also, I've created a folder under the docroot called "scripts" where I would place phpinfo.pho 
+* Also, I've placed phpinfo.php under the docroot (/usr/local/var/www) 
 * phpinfo.php just has a basic PHP code to print PHP info page when called from browser
 
 #### pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
