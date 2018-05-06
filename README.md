@@ -7,17 +7,20 @@ With this revision and implementation you can now run sitespeed.io in PRODUCTION
 
 ## PRE-REQUISITE - Setting up Sitespeed.io Using DOCKER
 
+You will need sitespeed.io installed on your local or QA or PROD environment to test this implementation. For now, let us install it on your local machine.
+
 * Visit https://hub.docker.com/r/sitespeedio/sitespeed.io/
 * docker pull sitespeedio/sitespeed.io:6.4.1 (using the TAG)
 * OR just docker pull sitespeedio/sitespeed.io (for latest version)
 
 #### SAMPLE - Docker run for Sitespeed.io
 
-* docker run --shm-size=1g --rm -v "$(pwd)":/sitespeed.io sitespeedio/sitespeed.io http://www.sitespeed.io/ -b chrome --speedIndex --video
+* **docker run --shm-size=1g --rm -v "$(pwd)":/sitespeed.io sitespeedio/sitespeed.io http://www.sitespeed.io/ -b chrome --speedIndex --video**
 
 ## INSTALL NGINX with PHP enabled
 
 We will install Nginx on Mac, setup the sitespeed.io, and configure sitespeed.io.php to test this implementation.
 
-$ brew install nginx (use homebrew to install nginx on Mac)
+$ **brew install nginx** (use homebrew to install nginx on Mac)
+
 
