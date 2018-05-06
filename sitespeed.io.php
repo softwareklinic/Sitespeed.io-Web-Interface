@@ -201,20 +201,20 @@
                         $pageUrl = $fileName;
                     }
 
-                    $dockerCommand = 'docker run --shm-size=1g --rm -v /app/sitespeed.io:/sitespeed.io sitespeedio/sitespeed.io:6.4.1';
+                    $dockerCommand = 'docker run --shm-size=1g --rm -v /app/sitespeed.io:/sitespeed.io sitespeedio/sitespeed.io';
 
                     // for Naveen - pls add sitespeed version below
                     if (isset($_POST["submit"])){
                          // Analyze button clicked
-                         $dockerCommand = 'docker run --shm-size=1g --rm -v /app/sitespeed.io:/sitespeed.io sitespeedio/sitespeed.io:6.4.1 -b chrome '.$pageUrl.$proxysetting.$resultBaseUrl.$firstParty.$resultsUrl.$videoIndex.$preLoginScript;
+                         $dockerCommand = 'docker run --shm-size=1g --rm -v /app/sitespeed.io:/sitespeed.io sitespeedio/sitespeed.io -b chrome '.$pageUrl.$proxysetting.$resultBaseUrl.$firstParty.$resultsUrl.$videoIndex.$preLoginScript;
                     } else if (isset($_POST["homepage"])){
                          // Analyze home page button clicked
                          $pageUrl = "https://www.yourdomain.com";
-                         $dockerCommand = 'docker run --shm-size=1g --rm -v /app/sitespeed.io:/sitespeed.io sitespeedio/sitespeed.io:6.4.1 -b chrome '.$pageUrl.$proxysetting.$resultBaseUrl.$firstParty.$resultsUrl.$videoIndex.$preLoginScript;
+                         $dockerCommand = 'docker run --shm-size=1g --rm -v /app/sitespeed.io:/sitespeed.io sitespeedio/sitespeed.io -b chrome '.$pageUrl.$proxysetting.$resultBaseUrl.$firstParty.$resultsUrl.$videoIndex.$preLoginScript;
                     } else if (isset($_POST["top25"])){
                         // Analyze top 25 urls
                          $pageUrl = "top25.txt";
-                         $dockerCommand = 'docker run --shm-size=1g --rm -v /app/sitespeed.io:/sitespeed.io sitespeedio/sitespeed.io:6.4.1 -b chrome '.$pageUrl.$proxysetting.$resultBaseUrl.$firstParty.$resultsUrl.$videoIndex.$preLoginScript;
+                         $dockerCommand = 'docker run --shm-size=1g --rm -v /app/sitespeed.io:/sitespeed.io sitespeedio/sitespeed.io -b chrome '.$pageUrl.$proxysetting.$resultBaseUrl.$firstParty.$resultsUrl.$videoIndex.$preLoginScript;
 
                     }
 
