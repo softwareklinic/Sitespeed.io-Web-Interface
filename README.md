@@ -162,6 +162,8 @@ if (strlen(trim($_POST['multipleurl']))>0) {
 }
 ```
 
+![Random number file names](https://github.com/softwareklinic/Sitespeed.io-Web-Interface/blob/master/images/random-numbers.png "Random number file names")
+
 * Mapping the /usr/local/var/www or ANY other folder as sitespeed mount folder
 * Feel free to map this to any other folder that you think will be used as the sitespeed.io root folder
 * In our production we are using /app/sitespeed.io
