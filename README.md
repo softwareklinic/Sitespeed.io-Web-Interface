@@ -185,6 +185,19 @@ if (isset($_POST["submit"])){
 }
 ```
 
+## NOTE: SOME MORE TODO 
+// COMING SOON
 
+## NEXT STEPS
+
+* Externalize all settings from PHP to ini 
+* Dockerize this application - once all variables are externalized
+* Enhancements welcome 
+* Pull requests welcome
+
+## Contact
+
+* You can reach me at https://www.linkedin.com/in/keyurkshah/
+* More than welcome if you have questions on sitespeed.io or run into any issues making this work
 
 

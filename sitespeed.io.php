@@ -165,7 +165,7 @@
 
                     if (strlen(trim($_POST['multipleurl']))>0) {
                         $fileName = $randomNumber.'.txt';
-                        $fileHandle = fopen('/app/sitespeed.io/'.$fileName, "a");
+                        $fileHandle = fopen('/usr/local/var/www/'.$fileName, "a");
                         fwrite($fileHandle,$_POST['multipleurl']."\r\n");
                         fclose($fileHandle);
                     }
@@ -187,7 +187,13 @@
                         $environment = "www";
 
                     // Sitespeed setting (default)
-                    $proxysetting = ' --browsertime.proxy.http=proxy.yourdomain.com:80 --browsertime.proxy.https=proxy.yourcomain.com:80';
+
+                    // for staging, prod, or Qa env seeking proxy 
+                    // $proxysetting = ' --browsertime.proxy.http=proxy.yourdomain.com:80 --browsertime.proxy.https=proxy.yourcomain.com:80';
+                    
+                    // for local testing only
+                    $proxysetting = '';
+
                     $resultBaseUrl = ' --resultBaseURL http://sitespeed.yourdomain.com:80/'.$environment;
                     $firstParty = ' --firstParty ".*(vzw|verizonwireless).*"';
                     $resultsUrl = ' --outputFolder sitespeed-result/'.$environment.'/$(date +\%Y-\%m-\%d-\%H-\%M-\%S)';
@@ -201,20 +207,20 @@
                         $pageUrl = $fileName;
                     }
 
-                    $dockerCommand = 'docker run --shm-size=1g --rm -v /app/sitespeed.io:/sitespeed.io sitespeedio/sitespeed.io';
+                    $dockerCommand = 'docker run --shm-size=1g --rm -v /usr/local/var/www:/sitespeed.io sitespeedio/sitespeed.io';
 
                     // for Naveen - pls add sitespeed version below
                     if (isset($_POST["submit"])){
                          // Analyze button clicked
-                         $dockerCommand = 'docker run --shm-size=1g --rm -v /app/sitespeed.io:/sitespeed.io sitespeedio/sitespeed.io -b chrome '.$pageUrl.$proxysetting.$resultBaseUrl.$firstParty.$resultsUrl.$videoIndex.$preLoginScript;
+                         $dockerCommand = 'docker run --shm-size=1g --rm -v /usr/local/var/www:/sitespeed.io sitespeedio/sitespeed.io -b chrome '.$pageUrl.$proxysetting.$resultBaseUrl.$firstParty.$resultsUrl.$videoIndex.$preLoginScript;
                     } else if (isset($_POST["homepage"])){
                          // Analyze home page button clicked
                          $pageUrl = "https://www.yourdomain.com";
-                         $dockerCommand = 'docker run --shm-size=1g --rm -v /app/sitespeed.io:/sitespeed.io sitespeedio/sitespeed.io -b chrome '.$pageUrl.$proxysetting.$resultBaseUrl.$firstParty.$resultsUrl.$videoIndex.$preLoginScript;
+                         $dockerCommand = 'docker run --shm-size=1g --rm -v /usr/local/var/www:/sitespeed.io sitespeedio/sitespeed.io -b chrome '.$pageUrl.$proxysetting.$resultBaseUrl.$firstParty.$resultsUrl.$videoIndex.$preLoginScript;
                     } else if (isset($_POST["top25"])){
                         // Analyze top 25 urls
                          $pageUrl = "top25.txt";
-                         $dockerCommand = 'docker run --shm-size=1g --rm -v /app/sitespeed.io:/sitespeed.io sitespeedio/sitespeed.io -b chrome '.$pageUrl.$proxysetting.$resultBaseUrl.$firstParty.$resultsUrl.$videoIndex.$preLoginScript;
+                         $dockerCommand = 'docker run --shm-size=1g --rm -v /usr/local/var/www:/sitespeed.io sitespeedio/sitespeed.io -b chrome '.$pageUrl.$proxysetting.$resultBaseUrl.$firstParty.$resultsUrl.$videoIndex.$preLoginScript;
 
                     }
 
