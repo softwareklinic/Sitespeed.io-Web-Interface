@@ -1,8 +1,10 @@
-# NOTE: If you have Nginx & PHP working - this setup should not take more than 10-15 mins to bring the UI in action
+## NOTE: If you have Nginx & PHP working - this setup should not take more than 10-15 mins to bring the UI in action
 
 ## Sitespeed.io Web Interface - Thanks to sitespeed.io project (Peter & team)
 
 At Verizon we are heavy users of sitespeed.io - providing us with continuous evaluation, monitoring, and coach suggestions related to desktop and mobile web applications. While most tools provide us means to monitor and alert - sitespeed.io is very unique since it gives you insights on how to make the website experience better in terms of response times & rendering.
+
+![Sitespeed.io Web Interface](https://github.com/softwareklinic/Sitespeed.io-Web-Interface/blob/master/images/sitespeed-web-interface.png "Sitespeed.io Web Interface")
 
 ## ABOUT THE REPO - Thanks to Blackmamba project
 
