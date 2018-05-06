@@ -50,8 +50,7 @@ Or, if you don't want/need a background service you can just run:
 * Also, I've created a folder under the docroot called "scripts" where I would place phpinfo.pho 
 * phpinfo.php just has a basic PHP code to print PHP info page when called from browser
 
-  # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-  #
+#### pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
   location ~ \.php$ {
   	root           html;
     fastcgi_pass   127.0.0.1:9000;
