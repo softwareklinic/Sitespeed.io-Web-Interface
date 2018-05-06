@@ -185,6 +185,20 @@ if (isset($_POST["submit"])){
 }
 ```
 
+## VIEW RESULTS - customize it
+
+* Below code is used to PARSE the response returned by the sitespeed.io docker command and extract the URL where we are posting the sitespeed-result - hence making the RESULT link clickable and openable in new window
+* Cool stuff
+
+```php
+if (count($output)>0)
+{
+    $urlToParse = $output[count($output)-1];
+    $strPos = strpos($urlToParse, "http");
+    $urlToClick = substr($urlToParse, $strPos);
+}
+```
+
 ## NOTE: SOME MORE TODO 
 // COMING SOON
 
@@ -194,6 +208,15 @@ if (isset($_POST["submit"])){
 * Dockerize this application - once all variables are externalized
 * Enhancements welcome 
 * Pull requests welcome
+
+## VOTE OF THANKS
+
+* Many thanks to my colleagues 
+** Somasekhar Nekkalapudi (https://www.linkedin.com/in/somasekharnekkalapudi)
+** Naveen Indurti (https://linkedin.com/in/naveen-indurti-ba1aabb3)
+** Mark Redder (https://www.linkedin.com/in/markredder/)
+* Sitespeed.io team (https://github.com/sitespeedio/sitespeed.io)
+* Blackmamba project (https://github.com/blackmamba/sitespeediowebinterface)
 
 ## Contact
 
