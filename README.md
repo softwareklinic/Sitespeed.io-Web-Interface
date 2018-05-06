@@ -53,18 +53,24 @@ Or, if you don't want/need a background service you can just run:
 * Also, I've placed phpinfo.php under the docroot (/usr/local/var/www) 
 * phpinfo.php just has a basic PHP code to print PHP info page when called from browser
 
-#### pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+#### Pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
   location ~ \.php$ {
   	root           html;
     fastcgi_pass   127.0.0.1:9000;
     fastcgi_index  index.php;
-    fastcgi_param  SCRIPT_FILENAME  /usr/local/var/www/scripts$fastcgi_script_name;
+    fastcgi_param  SCRIPT_FILENAME  /usr/local/var/www$fastcgi_script_name;
     include        fastcgi_params;
   }
 
 #### Restart nginx to enable the changes
 
 * $ **brew services restart nginx**
+
+#### Test PHP Info
+
+* http://localhost:8080/phpinfo.php
+
+![Php info](https://github.com/softwareklinic/Sitespeed.io-Web-Interface/blob/master/images/phpinfo-www-folder.png "Php info")
 
 ## SETTING UP Sitespeed.io.php & dependencies
 
