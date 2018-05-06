@@ -212,9 +212,9 @@ if (count($output)>0)
 ## VOTE OF THANKS
 
 * Many thanks to my colleagues 
-..* Somasekhar Nekkalapudi (https://www.linkedin.com/in/somasekharnekkalapudi)
-..* Naveen Indurti (https://linkedin.com/in/naveen-indurti-ba1aabb3)
-..* Mark Redder (https://www.linkedin.com/in/markredder/)
+  * Somasekhar Nekkalapudi (https://www.linkedin.com/in/somasekharnekkalapudi)
+  * Naveen Indurti (https://linkedin.com/in/naveen-indurti-ba1aabb3)
+  * Mark Redder (https://www.linkedin.com/in/markredder/)
 * Sitespeed.io team (https://github.com/sitespeedio/sitespeed.io)
 * Blackmamba project (https://github.com/blackmamba/sitespeediowebinterface)
 
