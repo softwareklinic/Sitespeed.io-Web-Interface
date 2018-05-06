@@ -1,9 +1,12 @@
-## Sitespeed.io Web Interface
+## Sitespeed.io Web Interface - Thanks to sitespeed.io project (Peter & team)
 
+At Verizon we are heavy users of sitespeed.io - providing us with continuous evaluation, monitoring, and coach suggestions related to desktop and mobile web applications. While most tools provide us means to monitor and alert - sitespeed.io is very unique since it gives you insights on how to make the website experience better in terms of response times & rendering.
+
+## ABOUT THE REPO - Thanks to Blackmamba project
 
 This repo is carved out of https://github.com/blackmamba/sitespeediowebinterface and have been enhanced to a great extent to accomodate the needs of IT and Business users to run sitespeed.io on-demand.
 
-With this revision and implementation you can now run sitespeed.io in PRODUCTION, staging, and other QA environments within your organization for the docker implementation. You can also, customize this to run for non-docker implementations - once you understand the PHP implementation.
+With this revision and implementation you can now run sitespeed.io in PRODUCTION, staging, and other QA environments within your organization for the docker implementation. You can also, customize this script to run for non-docker implementations - of course, once you understand the PHP implementation.
 
 ## PRE-REQUISITE - Setting up Sitespeed.io Using DOCKER
 
@@ -62,6 +65,20 @@ Or, if you don't want/need a background service you can just run:
 #### Restart nginx to enable the changes
 
 * $ **brew services restart nginx**
+
+## SETTING UP Sitespeed.io.php & dependencies
+
+Clone this REPO in the document root (e.g. /usr/local/var/www) of your Nginx and you are ready to configure it.
+
+#### Key components
+
+Following are the key components of Sitespeed.io.php
+
+* **cc** folder (basic css rules - nothing fancy)
+* **images** folder (Just 1 image file - preloader.gif) - is an animated GIF that you want to show when sitespeed portal is processing the URLs for performance analysis
+* **sitespeed.io.php** - the heart of this application - Its all in the PHP file - I'm planning to make it better by seperating the configuration into some .ini files later
+* **.js** file - you will observe some JS files e.g. staging.js or qa1.js -- those are your preScript files containing the pre login scripts that you will provide as argument to sitespeed if you want to test login-based flows
+
 
 
 
