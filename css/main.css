@@ -1,0 +1,8 @@
+.row,.pre {
+    margin-top: 2em;
+}
+
+pre {
+    width: auto;
+    height: 300px;
+}
