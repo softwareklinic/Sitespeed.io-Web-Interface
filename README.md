@@ -132,7 +132,13 @@ $pageUrl = "https://www.yourdomain.com";
 
 ```php
 // Sitespeed setting (default)
+
+// use for testing URLS via PROXY
 $proxysetting = ' --browsertime.proxy.http=proxy.yourdomain.com:80 --browsertime.proxy.https=proxy.yourcomain.com:80';
+
+// use for testing on local or if no PROXY involved for internet traffic
+$proxysetting = '';
+
 $resultBaseUrl = ' --resultBaseURL http://sitespeed.yourdomain.com:80/'.$environment;
 $firstParty = ' --firstParty ".*(vzw|verizonwireless).*"';
 $resultsUrl = ' --outputFolder sitespeed-result/'.$environment.'/$(date +\%Y-\%m-\%d-\%H-\%M-\%S)';
