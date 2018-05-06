@@ -29,7 +29,7 @@ $ **brew install nginx** (use homebrew to install nginx on Mac)
 Following the brew install nginx -- you will notice below message indicating the location of the nginx docroot and the config files
 
 ==> Downloading https://homebrew.bintray.com/bottles/nginx-1.13.12.sierra.bottle
-######################################################################## 100.0%
+################################################################## 100.0%
 ==> Pouring nginx-1.13.12.sierra.bottle.tar.gz
 ==> Caveats
 
@@ -86,6 +86,57 @@ Following are the key components of Sitespeed.io.php
 * **images** folder (Just 1 image file - preloader.gif) - is an animated GIF that you want to show when sitespeed portal is processing the URLs for performance analysis
 * **sitespeed.io.php** - the heart of this application - Its all in the PHP file - I'm planning to make it better by seperating the configuration into some .ini files later
 * **.js** file - you will observe some JS files e.g. staging.js or qa1.js -- those are your preScript files containing the pre login scripts that you will provide as argument to sitespeed if you want to test login-based flows
+
+![Sitespeed.io.php Folder structure](https://github.com/softwareklinic/Sitespeed.io-Web-Interface/blob/master/images/sitespeed-www-folder.png "Sitespeed.io.php Folder structure")
+
+#### MOST IMPORTANT SECTION - the PHP script contains few configurable elements that you need to change to suit your needs
+
+Below sections of code must be configured before giving this tool a spin:
+
+* Replace www.yourdomain.com with "your own domain" e.g. www.verizonwireless.com
+
+```php
+$pageUrl = "https://www.yourdomain.com";
+```
+
+```html
+<textarea class="form-control" rows="5" id="multipleurl" name="multipleurl">https://www.yourdomain.com</textarea>
+```
+
+* Customize this section to add your choice of environments
+
+```html
+<ul class="dropdown-menu" name="environment">
+    <li><a href="#">www</a></li>
+    <li class="divider"></li>
+    <li><a href="#">staging</a></li>
+    <li class="divider"></li>
+    <li><a href="#">qa1</a></li>
+    <li><a href="#">qa2</a></li>
+    <li><a href="#">qa3</a></li>
+    <li><a href="#">qa4</a></li>
+    <li><a href="#">qa5</a></li>
+    <li><a href="#">qa6</a></li>
+    <li><a href="#">qa7</a></li>
+    <li><a href="#">qa8</a></li>
+    <li><a href="#">qa9</a></li>
+    <li><a href="#">qa10</a></li>
+</ul>
+```
+
+* This section has sitespeed.io defaults for your environment
+* While running on local machine you might not need proxy - so maybe you can choose to comment out this line and replace with ```$proxysetting = '';```
+* firstParty - I've configured here to just show case how to add one or more of your domains as 1st party - everything else is 3rd party
+
+```php
+// Sitespeed setting (default)
+$proxysetting = ' --browsertime.proxy.http=proxy.yourdomain.com:80 --browsertime.proxy.https=proxy.yourcomain.com:80';
+$resultBaseUrl = ' --resultBaseURL http://sitespeed.yourdomain.com:80/'.$environment;
+$firstParty = ' --firstParty ".*(vzw|verizonwireless).*"';
+$resultsUrl = ' --outputFolder sitespeed-result/'.$environment.'/$(date +\%Y-\%m-\%d-\%H-\%M-\%S)';
+$videoIndex = ' --video --speedIndex';
+```
+
 
 
 
