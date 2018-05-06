@@ -148,6 +148,43 @@ $videoIndex = ' --video --speedIndex';
 ```
 
 
+* All the URLs that you enter in the TEXT AREA in the UI will be 1st saved to a TEXT file under the folder assigned to $fileHandle
+* The text file is named using the random number generated in the php code to support multiple users trying to use this feature at same time - this might be subject to improvement
+* Feel free to change this to any other folder that you think will be used as the sitespeed.io root folder
+* In our production we are using /app/sitespeed.io
+
+```php
+if (strlen(trim($_POST['multipleurl']))>0) {
+    $fileName = $randomNumber.'.txt';
+    $fileHandle = fopen('/usr/local/var/www/'.$fileName, "a");
+    fwrite($fileHandle,$_POST['multipleurl']."\r\n");
+    fclose($fileHandle);
+}
+```
+
+* Mapping the /usr/local/var/www or ANY other folder as sitespeed mount folder
+* Feel free to map this to any other folder that you think will be used as the sitespeed.io root folder
+* In our production we are using /app/sitespeed.io
+
+```php
+$dockerCommand = 'docker run --shm-size=1g --rm -v /usr/local/var/www:/sitespeed.io sitespeedio/sitespeed.io';
+
+// for Naveen - pls add sitespeed version below
+if (isset($_POST["submit"])){
+     // Analyze button clicked
+     $dockerCommand = 'docker run --shm-size=1g --rm -v /usr/local/var/www:/sitespeed.io sitespeedio/sitespeed.io -b chrome '.$pageUrl.$proxysetting.$resultBaseUrl.$firstParty.$resultsUrl.$videoIndex.$preLoginScript;
+} else if (isset($_POST["homepage"])){
+     // Analyze home page button clicked
+     $pageUrl = "https://www.yourdomain.com";
+     $dockerCommand = 'docker run --shm-size=1g --rm -v /usr/local/var/www:/sitespeed.io sitespeedio/sitespeed.io -b chrome '.$pageUrl.$proxysetting.$resultBaseUrl.$firstParty.$resultsUrl.$videoIndex.$preLoginScript;
+} else if (isset($_POST["top25"])){
+    // Analyze top 25 urls
+     $pageUrl = "top25.txt";
+     $dockerCommand = 'docker run --shm-size=1g --rm -v /usr/local/var/www:/sitespeed.io sitespeedio/sitespeed.io -b chrome '.$pageUrl.$proxysetting.$resultBaseUrl.$firstParty.$resultsUrl.$videoIndex.$preLoginScript;
+
+}
+```
+
 
 
 
